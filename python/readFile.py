@@ -1,8 +1,9 @@
 import string
 
 def readFile(fileName):
-    f = open(fileName)
-    content = f.read()
+    content = ''
+    with open(fileName, 'r') as f:
+        content = f.read()
     words = set([])
     for line in content.splitlines():
         for word in map(string.lower, line.split()):
