@@ -2,6 +2,7 @@ import string
 
 def readFile(fileName):
     content = ''
+    # read entire file content all together
     with open(fileName, 'r') as f:
         content = f.read()
     words = set([])

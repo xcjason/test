@@ -13,16 +13,23 @@ def try_this_shirt(size):
 #try_this_shirt(38)
 
 def deco1(func):  
-    print("deco1")  
-    return func  
+    print 'deco1'
+    def wrapper(arg):
+        return func() + '|deco1'
+    return wrapper
   
-def deco2(func):  
-    print("deco2")  
-    return func  
- 
-@deco2  
-@deco1  
-def foo():  
-    print("foo")  
+def deco2(func):
+    print 'deco2'
+    def wrapper(arg):
+        return func(arg) + '|deco2'
+    return wrapper
+
+@deco2
+def foo(name):  
+    print 'foo'
+    return 'hello ' + name
   
-foo() 
+print foo('Jimmy') 
+
+myFoo = deco2(foo)
+print myFoo('Kate')
