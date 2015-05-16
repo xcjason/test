@@ -25,6 +25,19 @@ class Solution:
             if len(tmp) > len(res): res = tmp
         return res
 
+    def longestPalindrome_2(self, s):
+        lenS = len(s)
+        finalS, finalE = 0, 0
+        for i in xrange(2 * lenS):
+            start = i / 2
+            end = start + i % 2
+            tmpS, tmpE = 0, 0
+            while start >= 0 and end < lenS and s[start] == s[end]:
+                tmpS, tmpE = start, end
+                start -= 1; end += 1
+            if tmpE - tmpS > finalE - finalS: finalS, finalE = tmpS, tmpE
+        return s[finalS: finalE + 1]
+
 if __name__ == '__main__':
     sol = Solution()
     print sol.longestPalindrome('cc')
@@ -33,3 +46,10 @@ if __name__ == '__main__':
     print sol.longestPalindrome('bcc')
     print sol.longestPalindrome('aaabd')
     print sol.longestPalindrome('daabbaa')
+    print sol.longestPalindrome('abb')
+    print '============================='
+    print sol.longestPalindrome_2('ccc')
+    print sol.longestPalindrome_2('aaaa')
+    print sol.longestPalindrome_2('bcc')
+    print sol.longestPalindrome_2('aaabd')
+    print sol.longestPalindrome_2('abb')
