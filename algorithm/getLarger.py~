@@ -1,7 +1,0 @@
-def compare(x, y):
-    l = [x, y]
-    return l[(x - y) >> 31]
-
-if __name__ == '__main__':
-    print compare(5, 10)
-
