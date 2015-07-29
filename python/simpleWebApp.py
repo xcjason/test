@@ -7,13 +7,13 @@ listenSocket.bind((HOST, PORT))
 listenSocket.listen(1)
 print 'Serving HTTP on port %s ...' % PORT
 while True:
-	clientConnection, clientAddr = listenSocket.accept()
-	request = clientConnection.recv(1024)
-	print request
-	httpResp = """
-	HTTP/1.1 200 OK
+    clientConnection, clientAddr = listenSocket.accept()
+    request = clientConnection.recv(1024)
+    print request
+    httpResp = """
+    HTTP/1.1 200 OK
 
-	Hello App!
-	"""
-	clientConnection.sendall(httpResp)
-	clientConnection.close()
+    Hello App!
+    """
+    clientConnection.sendall(httpResp)
+    clientConnection.close()
