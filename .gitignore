@@ -2,3 +2,5 @@
 *.py~
 *.tsk
 *.swp
+*.sqlite
+./try_map/*
